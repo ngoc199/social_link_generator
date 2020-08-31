@@ -1,0 +1,124 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+}
+
+#wrapper {
+	text-align: center;
+	width: 50%;
+	margin: 0 auto;
+}
+
+/* FORM */
+.form-group {
+	width: 100%;
+	margin: 1rem 0;
+}
+
+.form-control {
+	width: 100%;
+	display: block;
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+}
+
+.input-group {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+.input-group > .form-control {
+	width: 1%;
+	flex: 1 1 auto;
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+.input-group-text {
+	display: flex;
+	color: #ffffff;
+	padding: 0.375rem 0.75rem;
+	line-height: 1.5;
+	font-size: 1rem;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+}
+
+.input-group-append,
+.input-group-prepend {
+	display: flex;
+}
+
+.input-group-prepend {
+	margin-right: -1px;
+}
+
+.input-group-append {
+	margin-left: -1px;
+}
+
+/* BUTTONS */
+.btn {
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 5px;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.btn-primary {
+	background-color: plum;
+	color: #ffffff;
+	transition: all 0.3s ease-in;
+}
+
+.btn-primary:hover {
+	cursor: pointer;
+	background-color: rgb(190, 139, 190);
+}
+
+.input-group-append > .btn:not(:last-child) {
+	border-radius: 0;
+}
+
+.input-group-append > .btn:last-child {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.input-group-append > .btn:not(:last-child):not(:first-child) {
+	position: relative;
+}
+
+.input-group-append > .btn:not(:last-child):not(:first-child)::before,
+.input-group-append > .btn:not(:last-child):not(:first-child)::after {
+	content: "";
+	height: 80%;
+	width: 2px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #ffffff;
+}
+
+.input-group-append > .btn:not(:last-child):not(:first-child)::before {
+	left: 0;
+}
+
+.input-group-append > .btn:not(:last-child):not(:first-child)::after {
+	right: 0;
+}

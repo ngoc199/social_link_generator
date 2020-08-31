@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Share Link Generator</title>
+
+		<!-- Styles -->
+		<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+		<!-- Font Awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+			integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+			crossorigin="anonymous"
+		/>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Get Your Shareable Links</h1>
+			<form action="/" method="post">
+				<div class="form-group">
+					<input
+						type="url"
+						placeholder="Paste here the URL you want to share"
+						name="url"
+						class="form-control"
+					/>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Create Links!</button>
+				</div>
+			</form>
+			<div th:if="${links}">
+				<h2 class="text-center">Get your links</h2>
+				<div th:each="link : ${links}" class="input-group">
+					<div
+						class="input-group-prepend"
+						th:style="${'background-color:' + link.color}"
+					>
+						<span class="input-group-text">
+							<i
+								th:class="${link.name} == 'envelope' ? 'fas' : 'fab'"
+								th:classappend="${'fa-' + link.name}"
+							></i
+						></span>
+					</div>
+					<input
+						type="text"
+						readonly
+						th:value="${link.value}"
+						class="form-control"
+					/>
+					<div class="input-group-append">
+						<a
+							title="Test Link"
+							th:href="${link.value}"
+							target="_blank"
+							class="btn btn-primary"
+							><i class="fas fa-arrow-right"></i
+						></a>
+						<button
+							title="Copy Link"
+							class="btn btn-primary"
+							th:data-copy="${link.value}"
+						>
+							<i class="fas fa-clone"></i>
+						</button>
+						<button
+							title="Copy HTML"
+							class="btn btn-primary"
+							th:data-copy="${'<a href=&quot;' + link.value + '&quot;>Share this!</a>'}"
+						>
+							<i class="fas fa-code"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script th:src="@{/js/script.js}"></script>
+	</body>
+</html>
